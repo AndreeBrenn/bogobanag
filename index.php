@@ -10,7 +10,7 @@
 	<div class="container">
 
 		<h1>TITLE OF THE PAGE</h1>
-		Hello World
+		Hello World Astrolabio desu!
 
 
 		<?php readfile("text.txt"); ?>
