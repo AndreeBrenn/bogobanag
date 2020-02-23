@@ -2,16 +2,28 @@ body{
 	background-color:#0f0f0f;
 	color: #40d2ff;
 	font-family: monospace;
+	margin-bottom: auto;
 }
 
-.container{
-	padding: 10px;
-	padding-top: 20px;
-	font-size: 18px;
-	margin-top: 15px;
-	margin-bottom: 15px;
-	background-color: #262626;
-}	
+.container-proj{
+	padding-left: 4%;
+	padding-right: 4%;
+	padding-bottom: 4%;
+}
+
+.leftside{
+	background-color: white;
+}
+
+.contents{
+	background-color: brown;
+	margin-right: 4%;
+	margin-left: 4%;
+}
+
+.rightside{
+	background-color: blue;
+}
 
 h1{
 	text-align: center;
@@ -20,4 +32,16 @@ h1{
 	font-style: italic;
 	margin: 5px;
 	margin-bottom: 20px;
+}
+
+.dropdown-menu{
+	align: center;
+	min-width: 1000px;
+}
+
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
 }

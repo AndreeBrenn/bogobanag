@@ -1,20 +1,38 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <title>Hello, world!</title>
-	<?php include 'header.php' ?>
+	  <?php include 'header.php' ?>
   </head>
+
   <body>
-	<?php include 'navbar.php' ?>
-	<div class="container">
+    <div class="menu">
+        <?php include 'navbar.php' ?>
+    </div>
 
-		<h1>TITLE OF THE PAGE</h1>
-		Hello World Astrolabio desu!
+    <div class="container-fluid container-proj">
+      <div class="row">
+
+        <div class="leftside col">
+          <p>l</p>
+        </div>
+
+        <div class="contents col-8">
+          <p>m</p>
+        </div>
+
+        <div class="rightside col">
+          <p>r</p>
+        </div>
+
+      </div>
 
 
-		<?php readfile("text.txt"); ?>
-	</div>
-	<?php include 'footer.php' ?>
+    </div>
+
+
+    <div class="footer">
+      <?php include 'footer.php' ?>
+    </div>
   </body>
 </html>
