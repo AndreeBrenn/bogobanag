@@ -18,10 +18,7 @@
         <div class="contents col-8">
           <h1>WELCOME TO TITLE</h1>
           <?php
-          $name = $_POST["username"];
-          $password = $_POST["password"];
-          echo "welcome " . $name . "<br>";
-          echo "yourpw: " . $password;
+            
            ?>
         </div>
 
