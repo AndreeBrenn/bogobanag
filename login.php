@@ -19,15 +19,44 @@
           <h1>LOGIN</h1>
           <p></p>
 
-          <form class="" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+          <?php
+            $usernameerr = $passworderr = "";
+            $username = $password = "";
 
-            USERNAME: <input type="text" name="username" value=""> <br>
+
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+              if (empty($_POST["username"])) {
+                $usernameerr = "Username is required!";
+                echo "*" . $usernameerr . "<br>";
+              }
+              else {
+                $username = input($_POST["username"]);
+                echo $username . "<br>";
+              }
+              if (empty($_POST["password"])) {
+                $passworderr = "Password is required!";
+                echo "*" . $passworderr . "<br>";
+              }
+              else {
+                $password = input($_POST["password"]);
+                echo $password . "<br>";
+              }
+            }
+
+            function input($data) {
+              $data = trim($data);
+              $data = stripslashes($data);
+              $data = htmlspecialchars($data);
+              return $data;
+            }
+           ?>
+
+          <form class="" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+            USERNAME: <input type="text" name="username" value="<?php echo $username; ?>"> <br>
             PASSWORD: <input type="password" name="password" value=""> <br>
             <input type="submit" name="" value="LOGIN">
           </form>
-          <?php
 
-           ?>
 
         </div>
 
