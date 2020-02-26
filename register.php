@@ -12,16 +12,17 @@
 
     <div class="container-proj">
       <div class="row">
-        <div class="leftside col" style="background-color:#0f0f0f">
-
+        <div class="leftside col disablediv">
         </div>
 
         <div class="contents col-8">
-          <p>contents col-8</p>
+          <h1>REGISTRATION</h1>
+
+          <?php echo "erase this line. and write your code here <br> FORMS:<br>FULLNAME<br>USERNAME<br>email<br>PASSWORD 2X" ?>
+
         </div>
 
-        <div class="rightside col" style="background-color:#0f0f0f">
-
+        <div class="rightside col disablediv">
         </div>
       </div>
     </div>

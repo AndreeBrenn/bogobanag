@@ -12,16 +12,26 @@
 
     <div class="container-proj">
       <div class="row">
-        <div class="leftside col" style="background-color:#0f0f0f">
-
+        <div class="leftside col disablediv">
         </div>
 
         <div class="contents col-8">
-          <p>contents col-8</p>
+          <h1>LOGIN</h1>
+          <p></p>
+
+          <form class="" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+
+            USERNAME: <input type="text" name="username" value=""> <br>
+            PASSWORD: <input type="password" name="password" value=""> <br>
+            <input type="submit" name="" value="LOGIN">
+          </form>
+          <?php
+
+           ?>
+
         </div>
 
-        <div class="rightside col" style="background-color:#0f0f0f">
-
+        <div class="rightside col disablediv">
         </div>
       </div>
     </div>
