@@ -8,7 +8,7 @@
 		<b>
       <a class="text-light" href="https://github.com/astrolabio1417/bogobanag">GITHUB repository</a>
       ----
-      <a class="text-light" href="#">Rouel Astrolabio</a>
+      <a class="text-light" href="#">Rouel Astrolabio --- Jeremiah Sarcia</a>
     </b>
 		</div>
 	</div>
