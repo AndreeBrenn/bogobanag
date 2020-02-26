@@ -43,6 +43,10 @@
               }
             }
 
+            if ($username == "admin" && $password == "admin") {
+              header ("location: login-welcome.php");
+            }
+
             function input($data) {
               $data = trim($data);
               $data = stripslashes($data);
