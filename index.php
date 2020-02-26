@@ -10,23 +10,26 @@
         <?php include 'navbar.php' ?>
     </div>
 
-    <div class="container-fluid container-proj">
-      <div class="row">
+    <div class="container-proj">
 
+      <div class="row">
         <div class="leftside col">
-          <p>l</p>
+          <p>leftside col</p>
         </div>
 
         <div class="contents col-8">
-          <p>m</p>
+          <p>m </p>
+          <?php
+          $file = fopen("text.txt", "r");
+          echo fread($file, filesize("text.txt"));
+          fclose($file);
+          ?>
         </div>
 
         <div class="rightside col">
-          <p>r</p>
+          <p>rightside col</p>
         </div>
-
       </div>
-
 
     </div>
 
