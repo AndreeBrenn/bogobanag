@@ -14,8 +14,7 @@
       <div class="row">
         <div class="leftside col">
           <p>leftside col</p>
-          <?php echo fread("text.txt", "r");
-            include 'navbar.php';?>
+
         </div>
 
         <div class="contents col-8">
@@ -25,7 +24,7 @@
 
         <div class="rightside col">
           <p>rightside col</p>
-          <?php echo fread("text.txt", "r");?>
+        
         </div>
       </div>
     </div>
