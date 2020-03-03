@@ -40,14 +40,18 @@ session_start();
                 $result = $conn->query($sql);
 
                 while($row = $result->fetch_assoc()) {
-                  echo $row["fname"]. ": " . $row["message"] . "<br>";
+                  ?>
+                  <div class="chat_box">
+                  <?php echo "<b>" . $row["fname"]. "</b>:<br>" . $row["message"] . "<br>"; ?>
+                  </div>
+                  <?php
                 }
 
                 $conn->close();
               ?>
             </div>
           </div>
-          <div class="container-fluid">
+          <div class="container message-box">
             <form class="text-right" action="#chatbox" method="post">
               message <input id="chatbox" type="text" name="chat" value="" style="width: 80%"> <input type="submit" name="submit" value="Enter">
             </form>
