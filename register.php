@@ -22,6 +22,7 @@
             $fname = $username = $password = $passwordv = $email = "";
             $fnameerr = $usernameerr = $passworderr = $passwordverr = $emailerr = "";
 
+
             if (empty($_POST["fname"])) {
               echo $fnameerr = "*Full name required!<br>";
             }
@@ -72,7 +73,13 @@
 
             if (empty($fnameerr . $usernameerr . $emailerr . $passworderr . $passwordverr)) {
               echo "Good job!";
-              header ("location: login.php");
+              include 'connect_db.php';
+
+              $sql = "INSERT INTO users_db(user_id, fname, username, email, password)
+              VALUES ('', '$fname', '$username', '$email', SHA1('$password'))";
+
+              $conn->exec($sql);
+              $conn = null;
             }
 
             function test_input($data) {
