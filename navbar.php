@@ -17,9 +17,6 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-	<?php
-	if ( isset($_SESSION['uname'])){
-	?>
 	<div class="collapse navbar-collapse" id="navbarNav">
 		<div class="bg-dark p-1">
 			<ul class="navbar-nav">
@@ -32,11 +29,5 @@
 			</ul>
 		</div>
 	</div>
-
-	<?php } else{ ?>
-		<div class="navbar">
-			<a class="nav-item" href="logout.php"> LOGOUT </a>
-		</div>
-	<?php } ?>
 
 </nav>

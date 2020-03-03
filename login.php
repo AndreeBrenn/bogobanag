@@ -46,10 +46,6 @@
               while ($row = $result->fetch_assoc()) {
                 if ($row["username"] == $uname && $row["password"] == SHA1($psword)) {
                   echo "loginsuccess!";
-                  $_SESSION["id"] = $row['user_id'];
-                  $_SESSION["uname"] = $row['username'];
-                  $_SESSION["email"] = $row['email'];
-                  $_SESSION["fname"] = $row['fname'];
                   $bool = true;
                 }
               }
