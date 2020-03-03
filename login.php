@@ -20,49 +20,64 @@
           <p></p>
 
           <?php
-            $usernameerr = $passworderr = "";
-            $username = $password = "";
+            $uname = $psword = "";
+            $err = "";
 
+            if (empty($_POST["username"])) {
+                echo $err = "*enter your username<br>";
+            }
+            else {
+              $uname = test_input($_POST["username"]);
+            }
+            if (empty($_POST["password"])) {
+              echo $err = "*enter your password";
+            }
+            else {
+              $psword = test_input($_POST["password"]);
+            }
 
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-              if (empty($_POST["username"])) {
-                $usernameerr = "Username is required!";
-                echo "*" . $usernameerr . "<br>";
+            $bool = false;
+
+            if (empty($err)) {
+              require 'connect_db_oop.php';
+              $sql = "SELECT * FROM users_db";
+              $result = $conn->query($sql);
+
+              while ($row = $result->fetch_assoc()) {
+                if ($row["username"] == $uname && $row["password"] == SHA1($psword)) {
+                  echo "loginsuccess!";
+                  $_SESSION["id"] = $row['user_id'];
+                  $_SESSION["uname"] = $row['username'];
+                  $_SESSION["email"] = $row['email'];
+                  $_SESSION["fname"] = $row['fname'];
+                  $bool = true;
+                }
               }
-              else {
-                $username = input($_POST["username"]);
-                echo $username . "<br>";
-              }
-              if (empty($_POST["password"])) {
-                $passworderr = "Password is required!";
-                echo "*" . $passworderr . "<br>";
-              }
-              else {
-                $password = input($_POST["password"]);
-                echo $password . "<br>";
+              $conn->close();
+
+              if ($bool == false) {
+                echo "wrong username/password";
               }
             }
 
-            if ($username == "admin" && $password == "admin") {
-              header ("location: login-welcome.php");
-            }
 
-            function input($data) {
+            function test_input($data) {
               $data = trim($data);
               $data = stripslashes($data);
               $data = htmlspecialchars($data);
               return $data;
             }
-           ?>
 
-          <form class="" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-            USERNAME: <input type="text" name="username" value="<?php echo $username; ?>"> <br>
+            ?>
+
+
+          <form class="" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            USERNAME: <input type="text" name="username" value=""> <br>
             PASSWORD: <input type="password" name="password" value=""> <br>
-            <input type="submit" name="" value="LOGIN">
+            <input type="submit" name="" value="login">
           </form>
-
-
         </div>
+
 
         <div class="rightside col disablediv">
         </div>

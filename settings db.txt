@@ -1,6 +1,6 @@
 database name: database123
 "database tables:"
-user_db = user_id, fname(30), username(15), email(30), password(20)  // user_id Int autoIncre.  varchar all
+user_db = user_id, fname(30), username(15), email(30), password(55)  // user_id Int autoIncre.  varchar all
 
 
 "user account"

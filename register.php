@@ -19,8 +19,8 @@
           <h1>REGISTRATION</h1>
 
           <?php
-            $fname = $username = $password = $passwordv = $email = "";
-            $fnameerr = $usernameerr = $passworderr = $passwordverr = $emailerr = "";
+            $fname = $uname = $psword = $pswordv = $email = "";
+            $fnameerr = $unameerr = $psworderr = $pswordverr = $emailerr = "";
 
 
             if (empty($_POST["fname"])) {
@@ -48,39 +48,64 @@
             }
 
             if (empty($_POST["username"])) {
-              echo $usernamerr = "*Username required!<br>";
+              echo $unamerr = "*Username required!<br>";
             }
             else {
-              $username = test_input($_POST["username"]);
+              $uname = test_input($_POST["username"]);
             }
 
             if (empty($_POST["password"])) {
-              echo $passworderr = "*Password required!<br>";
+              echo $psworderr = "*Password required!<br>";
             }
             else {
-              $password = test_input($_POST["password"]);
+              $psword = test_input($_POST["password"]);
             }
 
             if (empty($_POST["passwordv"])) {
-              echo $passwordverr = "*Retype your password!<br><br>";
+              echo $pswordverr = "*Retype your password!<br><br>";
             }
             else {
-              $passwordv = test_input($_POST["passwordv"]);
-              if ($password != $passwordv) {
-                echo $passwordverr = "please write the same password!";
+              $pswordv = test_input($_POST["passwordv"]);
+              if ($psword != $pswordv) {
+                echo $pswordverr = "please write the same password!";
               }
             }
 
-            if (empty($fnameerr . $usernameerr . $emailerr . $passworderr . $passwordverr)) {
-              echo "Good job!";
-              include 'connect_db.php';
+            require 'connect_db_oop.php';
+
+            $useremaildup = "SELECT username, email FROM users_db";
+            $result = $conn->query($useremaildup);
+
+            $umbool = false;
+
+            while ($row = $result->fetch_assoc()) {
+              if ($row["username"] == $uname || $row["email"] == $email) {
+                $umbool = true;
+              }
+            }
+            $conn->close();
+
+            if ($umbool == true) {
+              echo $unameerr = "duplicate username or  ";
+              echo $emailerr = "email <br>";
+            }
+
+            if (empty($fnameerr . $unameerr . $emailerr . $psworderr . $pswordverr)) {
+              require 'connect_db_oop.php';
 
               $sql = "INSERT INTO users_db(user_id, fname, username, email, password)
-              VALUES ('', '$fname', '$username', '$email', SHA1('$password'))";
+              VALUES ('', '$fname', '$uname', '$email', SHA1('$psword'))";
 
-              $conn->exec($sql);
-              $conn = null;
+              if ($conn->query($sql) == true) {
+                echo "new record added!";
+                header ('location: index.php');
+              }
+              else {
+                echo "please try again.";
+              }
+              $conn->close();
             }
+
 
             function test_input($data) {
               $data = trim($data);
@@ -92,7 +117,7 @@
 
           <form class="text-right" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             Full Name: <input type="text" name="fname" value="<?php echo $fname; ?>"> <br>
-            Username: <input type="text" name="username" value="<?php echo $username; ?>"> <br>
+            Username: <input type="text" name="username" value="<?php echo $uname ?>"> <br>
             Email: <input type="text" name="email" value="<?php echo $email; ?>"> <br>
             Password: <input type="password" name="password" value=""> <br>
             Password: <input type="password" name="passwordv" value=""> <br>
