@@ -1,4 +1,7 @@
 <!doctype html>
+<?php
+session_start();
+?>
 <html lang="en">
   <head>
     <title>Hello, world!</title>
@@ -24,7 +27,7 @@
 
         <div class="rightside col">
           <p>rightside col</p>
-        
+
         </div>
       </div>
     </div>

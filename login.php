@@ -1,4 +1,8 @@
 <!doctype html>
+<?php
+session_start();
+?>
+
 <html lang="en">
   <head>
     <title>Login</title>
@@ -46,6 +50,10 @@
               while ($row = $result->fetch_assoc()) {
                 if ($row["username"] == $uname && $row["password"] == SHA1($psword)) {
                   echo "loginsuccess!";
+                  $_SESSION["user_id"] = $row["user_id"];
+                  $_SESSION["fname"] = $row["fname"];
+                  $_SESSION["email"] = $row["email"];
+                  $_SESSION["username"] = $row["username"];
                   $bool = true;
                 }
               }
@@ -53,8 +61,11 @@
 
               if ($bool == false) {
                 echo "wrong username/password";
+              }else{
+                header ('location: index.php');
               }
             }
+
 
 
             function test_input($data) {

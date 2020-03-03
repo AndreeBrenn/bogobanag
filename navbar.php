@@ -20,12 +20,24 @@
 	<div class="collapse navbar-collapse" id="navbarNav">
 		<div class="bg-dark p-1">
 			<ul class="navbar-nav">
+				<?php if (!isset($_SESSION["user_id"])) { ?>
 				<li class="nav-item active">
 					<a href="login.php" class="btn btn-info nav-link m-1" role="button">Login</a>
 				</li>
 				<li class="nav-item active">
 					<a href="register.php" class="btn btn-info nav-link m-1" role="button">Register</a>
 				</li>
+			<?php } else { ?>
+				<li class="mx-5">
+					USERNAME: <?php echo $_SESSION["username"]?>
+				</li>
+				<li class="mx-5">
+					Fullname: <?php echo $_SESSION["fname"]?>
+				</li>
+				<li class="nav-item active">
+					<a href="logout.php" class="btn btn-info nav-link m-1" role="button">LOGOUT</a>
+				</li>
+				<?php } ?>
 			</ul>
 		</div>
 	</div>
