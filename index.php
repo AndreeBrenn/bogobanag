@@ -23,9 +23,6 @@ session_start();
         <div class="contents col-8">
           <p>m </p>
           <?php
-          $file = fopen("text.txt", "r");
-          echo fread($file, filesize("text.txt"));
-          fclose($file);
           ?>
         </div>
 

@@ -57,8 +57,8 @@ session_start();
               $uname = test_input($_POST["username"]);
             }
 
-            if (empty($_POST["password"])) {
-              echo $psworderr = "*Password required!<br>";
+            if (empty($_POST["password"]) || strlen($_POST["password"]) < 8) {
+              echo $psworderr = "*Password required! / 8+ Character<br>";
             }
             else {
               $psword = test_input($_POST["password"]);

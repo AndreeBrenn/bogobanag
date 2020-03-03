@@ -34,6 +34,9 @@
 				<li class="mx-5">
 					Fullname: <?php echo $_SESSION["fname"]?>
 				</li>
+				<li class="mx-5">
+					USER ID = <?php echo $_SESSION["user_id"] ?>
+				</li>
 				<li class="nav-item active">
 					<a href="logout.php" class="btn btn-info nav-link m-1" role="button">LOGOUT</a>
 				</li>

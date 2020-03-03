@@ -1,24 +1,14 @@
 database name: database123
-"database tables:"
-user_db = user_id, fname(30), username(15), email(30), password(55)  // user_id Int autoIncre.  varchar all
 
-
-"user account"
+"USERACCOUNT"
 user: admin
 : localhost
 password: admin
 
+"database tables:"
 
-"how to connect to use db"
-//connect your php to db
-include 'connect_db.php'; //include this file
+user_db <--- Table
+user_id, fname(30), username(15), email(30), password(55)  // user_id Int autoIncre.  varchar all  <---- column
 
-//create variable and add sql command
-$sql = "INSERT INTO users_db(user_id, fname, username, email, password)
-VALUES ('', '$fname', '$username', '$email', SHA1('$password'))";
-
-//run the command
-$conn->exec($sql);
-
-//close the connection
-$conn = null;
+world_chat_db <--- Table
+user_id(int), fname(50), message(600), date_time, chat_no(AutoIncre.) <---- column
