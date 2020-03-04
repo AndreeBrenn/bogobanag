@@ -21,9 +21,13 @@ session_start();
         </div>
 
         <div class="contents col-8">
-          <p>m </p>
-          <?php
-          ?>
+          <p> <h1>PROJECT CHATTING SYSTEM USING DATABASE<br></h1>
+          <h3>DEVELOPERS:</h3> </p>
+          FULLSTACK: ASTROLABIO ROUEL <br>
+          SALAR ANDREE <br>
+          SARCIA JEREMIAH <br>
+          AXLE <br>
+          AGUNDA <br>
         </div>
 
         <div class="rightside col">

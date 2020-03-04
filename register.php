@@ -52,7 +52,7 @@ session_start();
                 echo $fnameerr = "*Full name: Only letters and white space allowed<br>";
               }
               else {
-                $fname = test_input($_POST["fname"]);
+                $fname = $_POST["fname"];
               }
             }
 
@@ -132,6 +132,7 @@ session_start();
               $data = trim($data);
               $data = stripslashes($data);
               $data = htmlspecialchars($data);
+              $data = preg_replace('/\s+/', '', $data);
               return $data;
             }
            ?>
@@ -139,7 +140,7 @@ session_start();
           <form class="text-right" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             Full Name: <input type="text" name="fname" value="<?php echo $fname; ?>"> <br>
             Username: <input type="text" name="username" value="<?php echo $uname ?>"> <br>
-            Email: <input type="text" name="email" value="<?php echo $email; ?>"> <br>
+            Email: <input type="text" name="email" value="<?php echo $email ?>"> <br>
             Password: <input type="password" name="password" value=""> <br>
             Password: <input type="password" name="passwordv" value=""> <br>
             <input type="submit" name="" value="Register">

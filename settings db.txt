@@ -1,9 +1,17 @@
-database name: database123
+Instruction XAMPP:
 
-"USERACCOUNT"
+create: database name: database123
+
+Create: "USERACCOUNT"
 user: admin
-: localhost
+localhost
 password: admin
+
+
+end... delete your database table
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
 
 "database tables:"
 
