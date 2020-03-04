@@ -7,7 +7,6 @@
 	<a class="navbar-brand p-0" href="index.php"><img src="image/logopng.png" alt="logo" width="auto" height="60"></a>
 
 	<div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdownMenuLink">
-		<a class="dropdown-item text-light" href="worldchat.php">World Chat</a>
 		<a class="dropdown-item text-light" href="#">List</a>
 		<a class="dropdown-item text-light" href="#">Contact</a>
 		<a class="dropdown-item text-light" href="#">About</a>
@@ -28,20 +27,23 @@
 					<a href="register.php" class="btn btn-info nav-link m-1" role="button">Register</a>
 				</li>
 			<?php } else { ?>
-				<li class="mx-5">
+				<li class="mx-2">
 					USERNAME: <?php echo $_SESSION["username"]?>
+					<li class="mx-2">
 				</li>
-				<li class="mx-5">
 					Fullname: <?php echo $_SESSION["fname"]?>
 				</li>
-				<li class="mx-5">
+				<li class="mx-2">
 					USER ID = <?php echo $_SESSION["user_id"] ?>
 				</li>
-				<li class="mx-5">
+				<li class="mx-2">
 					ROOMTABLE = <?php echo $_SESSION["roomtable"] ?>
 				</li>
-				<li class="nav-item active">
+				<li class="nav-item active ml-2">
 					<a href="logout.php" class="btn btn-info nav-link m-1" role="button">LOGOUT</a>
+				</li>
+				<li class="nav-item active">
+					<a class="btn btn-info nav-link m-1" role="button" href="worldchat.php">World Chat</a>
 				</li>
 				<?php } ?>
 			</ul>

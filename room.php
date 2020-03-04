@@ -24,5 +24,6 @@
     $data = htmlspecialchars($data);
     $data = preg_replace('/\s+/', '', $data); //remove whitespaces
     return $data;
+
   }
  ?>
