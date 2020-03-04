@@ -26,6 +26,24 @@ session_start();
             $fnameerr = $unameerr = $psworderr = $pswordverr = $emailerr = "";
 
 
+            require 'connect_db_oop.php';
+            $dbcheck = "SELECT* FROM user_db";
+
+            //create one user_db...
+            if (!$conn->query($dbcheck)){
+              $sql = "CREATE TABLE `database123`.`users_db` (
+                 `user_id` INT(0000) NOT NULL AUTO_INCREMENT ,
+                 `fname` VARCHAR(50) NOT NULL ,
+                 `username` VARCHAR(20) NOT NULL ,
+                 `email` VARCHAR(50) NOT NULL ,
+                 `password` VARCHAR(50) NOT NULL ,
+                 PRIMARY KEY (`user_id`)
+               ) ENGINE = InnoDB;";
+            //query
+            $conn->query($sql);
+            }
+            $conn->close();
+
             if (empty($_POST["fname"])) {
               echo $fnameerr = "*Full name required!<br>";
             }
@@ -101,7 +119,7 @@ session_start();
 
               if ($conn->query($sql) == true) {
                 echo "new record added!";
-                header ('location: index.php');
+                header ('location: login.php');
               }
               else {
                 echo "please try again.";

@@ -5,7 +5,9 @@ $chat = $_POST["chat"];
 
 require "connect_db_oop.php";
 
-$sql = "INSERT INTO world_chat_db(user_id, fname, message, date_time, chat_no)
+$roomtable = $_SESSION["roomtable"];
+
+$sql = "INSERT INTO $roomtable(user_id, fname, message, date_time, chat_no)
 VALUES ('$user_id', '$fname', '$chat', NOW(), '')";
 
 $conn->query($sql);

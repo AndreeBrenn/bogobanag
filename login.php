@@ -54,6 +54,8 @@ session_start();
                   $_SESSION["fname"] = $row["fname"];
                   $_SESSION["email"] = $row["email"];
                   $_SESSION["username"] = $row["username"];
+                  $_SESSION["roomtable"] = "world_chat_db";
+                  $_SESSION["roomname"] = "World Chat";
                   $bool = true;
                 }
               }

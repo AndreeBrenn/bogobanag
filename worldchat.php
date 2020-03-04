@@ -13,7 +13,27 @@ session_start();
 
     <?php
       $chat = "";
-      $print = false;
+      $roomdb = $_SESSION["roomtable"];
+
+      require 'connect_db_oop.php';
+      $checkdb = "SELECT * FROM $roomdb";
+      //if theres no database auto create one
+      if (!$conn->query($checkdb)) {
+        echo "table not found creating one...<br>";
+        $sql = "CREATE TABLE `database123`.`$roomdb` (
+          `user_id` INT NOT NULL ,
+          `fname` VARCHAR(50) NOT NULL ,
+          `message` VARCHAR(1000) NOT NULL ,
+          `date_time` DATETIME on update CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
+          `chat_no` INT NOT NULL AUTO_INCREMENT , PRIMARY KEY (`chat_no`)
+        ) ENGINE = InnoDB;";
+
+        if (!$conn->query($sql)) {
+          echo $roomdb . " successfully added";
+        }
+      }
+      $conn->close();
+
       if (!empty($_POST["chat"]) && !empty($_SESSION["user_id"])) {
         require 'chatprocess.php';
       }
@@ -26,8 +46,10 @@ session_start();
     <div class="container-proj">
       <div class="row">
         <div class="leftside col">
-          <p>leftside col</p>
-
+          <form class="" action="room.php" method="post">
+            <input type="text" name="room" value="">
+            <input type="submit" name="submitroom" value="Join Room">
+          </form>
         </div>
 
         <div class="contents container-scroll col-8">
@@ -35,8 +57,7 @@ session_start();
             <div class="">
               <?php
                 require 'connect_db_oop.php';
-
-                $sql = "SELECT * FROM world_chat_db";
+                $sql = "SELECT * FROM $roomdb";
                 $result = $conn->query($sql);
 
                 while($row = $result->fetch_assoc()) {
@@ -59,7 +80,9 @@ session_start();
         </div>
 
         <div class="rightside col">
-          <p>rightside col</p>
+          <p>
+
+          </p>
 
         </div>
       </div>
